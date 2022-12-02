@@ -29,6 +29,7 @@ def getSolutionPart1(input_list):
                     total_score += (2 + 0)
                 case 'Z':
                     total_score += (3 + 3)
+                    
     return total_score
 
 
