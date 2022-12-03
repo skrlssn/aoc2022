@@ -73,4 +73,4 @@ part = environ.get('part')
 if part == 'part2':
     print(getSolutionPart2(input_list))  # 12535
 else:
-    print(getSolutionPart1(input_list))  # 15457
+    print(getSolutionPart1(input_list))  # 15457 
