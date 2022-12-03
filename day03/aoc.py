@@ -55,6 +55,7 @@ points = {
     'Z': 26 + 26
 }
 
+
 def getSolutionPart1(input_list):
     total_prio = 0
     for row in input_list:
