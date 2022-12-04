@@ -29,12 +29,12 @@ def getSolutionPart2(input_list):
     return total
 
 
-file = open("input.txt", "r")
-input = file.read().splitlines()
+file_input = open("input.txt", "r").read().splitlines()
 
+print('Python')
 part = environ.get('part')
 
 if part == 'part2':
-    print(getSolutionPart2(input)) #804
+    print(getSolutionPart2(file_input)) # 804
 else:
-    print(getSolutionPart1(input)) #424
+    print(getSolutionPart1(file_input)) # 424
