@@ -10,23 +10,23 @@ def isVisible(height, x, y, forrest):
     if not left or not right or not up or not down:
         return True
 
-    if max(left) < int(height):
+    if max(left) < height:
         return True
-    elif max(right) < int(height):
+    elif max(right) < height:
         return True
-    elif max(up) < int(height):
+    elif max(up) < height:
         return True
-    elif max(down) < int(height):
+    elif max(down) < height:
         return True
     else:
         return False
 
 
 def getScenicScore(height, x, y, forrest):
-    left = list(map(int, [tree for tree in forrest[x][:y]]))
-    right = list(map(int, [tree for tree in forrest[x][y+1:]]))
-    up = list(map(int, [row[y] for row in forrest[:x]]))
-    down = list(map(int, [row[y] for row in forrest[x+1:]]))
+    left = [tree for tree in forrest[x][:y]]
+    right = [tree for tree in forrest[x][y+1:]]
+    up = [row[y] for row in forrest[:x]]
+    down = [row[y] for row in forrest[x+1:]]
 
     if not left or not right or not up or not down:
         return 0
@@ -34,25 +34,25 @@ def getScenicScore(height, x, y, forrest):
     left_score, right_score, up_score, down_score = 0, 0, 0, 0
     
     for tree in reversed(left):            
-        if tree < int(height):
+        if tree < height:
             left_score += 1
         else:
             left_score += 1
             break
     for tree in right:
-        if tree < int(height):
+        if tree < height:
             right_score += 1
         else:
             right_score += 1
             break
     for tree in reversed(up):
-        if tree < int(height):
+        if tree < height:
             up_score += 1
         else:
             up_score += 1
             break
     for tree in down:
-        if tree < int(height):
+        if tree < height:
             down_score += 1
         else:
             down_score += 1
