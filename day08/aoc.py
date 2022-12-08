@@ -62,22 +62,20 @@ def getScenicScore(height, x, y, forrest):
 
 
 def getSolutionPart1(input_list):
-    total = 0
+    visibleTrees = 0
     for xPos, row in enumerate(input_list) :
         for yPos, tree in enumerate(row):
             if isVisible(tree, xPos, yPos, input_list):
-                total += 1
-    return total
+                visibleTrees += 1
+    return visibleTrees
 
 
 def getSolutionPart2(input_list):
-    best_score = 0
+    scores = []
     for xPos, row in enumerate(input_list) :
         for yPos, tree in enumerate(row):
-            score = getScenicScore(tree, xPos, yPos, input_list)
-            if score > best_score:
-                best_score = score 
-    return best_score
+            scores.append(getScenicScore(tree, xPos, yPos, input_list))
+    return max(scores)
 
 
 file_input = [list(map(int, row)) for row in open("input.txt", "r").read().splitlines()]
