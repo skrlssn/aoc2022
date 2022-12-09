@@ -107,7 +107,7 @@ def getSolutionPart2(input_list):
 
 
 def main():
-    file_input = open("day09/input.txt", "r").read().splitlines()
+    file_input = open("input.txt", "r").read().splitlines()
 
     print('Python')
     part = environ.get('part')
