@@ -1,6 +1,5 @@
 from os import environ
 
-
 def isVisible(height, x, y, forrest):
     left = [tree for tree in forrest[x][:y]]
     right = [tree for tree in forrest[x][y+1:]]
@@ -63,7 +62,7 @@ def getScenicScore(height, x, y, forrest):
 
 def getSolutionPart1(input_list):
     visibleTrees = 0
-    for xPos, row in enumerate(input_list) :
+    for xPos, row in enumerate(input_list):
         for yPos, tree in enumerate(row):
             if isVisible(tree, xPos, yPos, input_list):
                 visibleTrees += 1
@@ -78,12 +77,18 @@ def getSolutionPart2(input_list):
     return max(scores)
 
 
-file_input = [list(map(int, row)) for row in open("input.txt", "r").read().splitlines()]
+def main():
+    file_input = [[int(char) for char in row] for row in open("input.txt", "r").read().splitlines()]
+    # file_input = [list(map(int, row)) for row in open("input.txt", "r").read().splitlines()]
 
-print('Python')
-part = environ.get('part')
+    print('Python')
+    part = environ.get('part')
 
-if part == 'part2':
-    print(getSolutionPart2(file_input)) # 291840
-else:
-    print(getSolutionPart1(file_input)) # 1829
+    if part == 'part2':
+        print(getSolutionPart2(file_input)) # 291840
+    else:
+        print(getSolutionPart1(file_input)) # 1829
+
+
+if __name__ == '__main__':
+    main()
