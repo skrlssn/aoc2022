@@ -22,9 +22,6 @@ def getSolutionPart2(input_list):
             pixels.append('# ')
         else:
             pixels.append('  ')
-
-    def moveSprite():
-        return [x-1, x, x+1]
     
     def getNextPixel(pixel):
         if pixel < 39: 
@@ -47,28 +44,24 @@ def getSolutionPart2(input_list):
     currentPixel = 0
 
     for input in input_list:
-        match input.split(): # start process
-            case [_, value]:
-                #first run, execution begins
-                drawPixel()
-                currentPixel = getNextPixel(currentPixel)
-                #second run
-                drawPixel()
-                #execution finishes
-                x += int(value)
-                sprite = moveSprite()
-            case ['noop']:
-                drawPixel()
+        drawPixel()
+        instructions = input.split()
+        if instructions[0] == 'addx':
+            #first run, execution begins
+            currentPixel = getNextPixel(currentPixel)
+            #second run
+            drawPixel()
+            #execution finishes
+            x += int(instructions[1])
+            sprite = [x-1, x, x+1]
         currentPixel = getNextPixel(currentPixel)
     printCRT(pixels)
-
 
 def main():
     file_input = open("input.txt", "r").read().splitlines()
 
     print('Python')
     part = environ.get('part')
-
     if part == 'part2':
         getSolutionPart2(file_input)
     else:
